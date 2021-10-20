@@ -103,32 +103,123 @@ table {
 .col-33 {
   width: 33.3%; }
 
-.header .navigation {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  .header .navigation__logo {
-    flex-shrink: 0;
-    width: 94px;
-    margin: 9px 28px 0; }
-  .header .navigation__left, .header .navigation__right {
+.header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: .3s; }
+  .header.sticky {
+    background: #fff;
+    box-shadow: 0 0 12px 3px rgba(0, 0, 0, 0.3); }
+  .header .navigation {
     display: flex;
     align-items: center;
-    width: calc(50% - 47px);
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-wrap: wrap;
-    padding: 0 0 9px; }
-    .header .navigation__left a, .header .navigation__right a {
-      text-transform: uppercase;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 16px;
-      display: block;
-      letter-spacing: 2.5px;
-      padding: 5px 35px; }
-  .header .navigation__left {
-    justify-content: flex-end; }
+    justify-content: center; }
+    @media (max-width: 768px) {
+      .header .navigation {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        padding-top: 78px;
+        z-index: 100; } }
+    .header .navigation__logo {
+      flex-shrink: 0;
+      width: 94px;
+      margin: 9px 28px 0; }
+      @media (max-width: 768px) {
+        .header .navigation__logo {
+          display: none; } }
+      .header .navigation__logo-mobile {
+        display: none; }
+        @media (max-width: 768px) {
+          .header .navigation__logo-mobile {
+            display: block; } }
+    .header .navigation__left, .header .navigation__right {
+      display: flex;
+      align-items: center;
+      width: calc(50% - 47px);
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      padding: 0 0 9px; }
+      @media (max-width: 768px) {
+        .header .navigation__left, .header .navigation__right {
+          display: block;
+          text-align: center;
+          width: 100%;
+          padding: 0; } }
+      .header .navigation__left a, .header .navigation__right a {
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 16px;
+        display: block;
+        letter-spacing: 2.5px;
+        padding: 5px 35px;
+        position: relative; }
+        @media (max-width: 768px) {
+          .header .navigation__left a, .header .navigation__right a {
+            padding: 10px 15px;
+            font-size: 18px;
+            text-transform: uppercase; } }
+      .header .navigation__left li + li a:before, .header .navigation__right li + li a:before {
+        content: '.';
+        position: absolute;
+        left: 0;
+        bottom: 4px; }
+        @media (max-width: 768px) {
+          .header .navigation__left li + li a:before, .header .navigation__right li + li a:before {
+            display: none; } }
+    .header .navigation__left {
+      justify-content: flex-end; }
+    .header .navigation__close {
+      display: none; }
+      @media (max-width: 768px) {
+        .header .navigation__close {
+          display: block;
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          width: 48px;
+          height: 48px; }
+          .header .navigation__close:before, .header .navigation__close:after {
+            content: '';
+            width: 48px;
+            height: 1px;
+            background: #64c29e;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg); }
+          .header .navigation__close:after {
+            -webkit-transform: rotate(-45deg);
+                    transform: rotate(-45deg); } }
+  .header__mobile-menu {
+    display: none;
+    line-height: 0;
+    cursor: pointer; }
+    @media (max-width: 768px) {
+      .header__mobile-menu {
+        display: block; } }
+    .header__mobile-menu img {
+      height: 48px; }
+  @media (max-width: 768px) {
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      padding-bottom: 10px; } }
 
 .banner {
   min-height: 100vh;
