@@ -1,9 +1,21 @@
 window.$ = window.jQuery = require('jquery');
+// import Swiper from 'swiper';
 
 $(document).ready(function () {
     $('.header').on('click', '.header__mobile-menu, .navigation__close', function () {
         $('.navigation').slideToggle();
     })
+
+    const reviews = new Swiper('.reviews__slider', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 5000,
+        },
+    });
+
 });
 
 $(window).resize(function () {
